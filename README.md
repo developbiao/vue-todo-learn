@@ -1,9 +1,9 @@
 # About
-这是慕课网上[Vue+Webpack打造todo应用](https://www.imooc.com/learn/935)课程的源码
+### 学习Vue Cli
 
 # 使用方法
 ```
-git clone https://github.com/Jokcy/vue-todo-tech.git
+git clone https://github.com/developbiao/vue-todo-learn.git
 ```
 进入项目目录，运行
 ```
