@@ -2,7 +2,10 @@ module.exports = (isDev) => {
     return {
         //preserveWhitepace: true,
         extractCSS: !isDev,
-        cssModules: {},
+        cssModules: {
+            localIdentName: isDev ? '[path]-[name]-[hash:base64:5]' : '[hash:base64:5]',
+            camelCase: true
+        },
         //hostReload: true // 根据环境变量生成
     }
 }
