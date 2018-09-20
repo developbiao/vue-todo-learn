@@ -2,9 +2,10 @@ import Vue from 'vue'
 
 const app = new Vue({
   // el: '#root',
-  template: '<div ref="div">this is content {{text}}</div>',
+  template: '<div ref="div">this is content {{text}} {{obj.a}}</div>',
   data: {
-    text: 0
+    text: 0,
+    obj: {}
   }
   // watch: {
   //   text (newText, oldText) {
@@ -15,8 +16,11 @@ const app = new Vue({
 
 app.$mount('#root')
 
+let i = 0
 setInterval(() => {
+  i++
   app.text += 1
+  app.obj.a = i
 }, 1000)
 
 // console.log(app.$data)
