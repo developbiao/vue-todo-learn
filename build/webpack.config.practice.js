@@ -5,7 +5,7 @@ const merge = require('webpack-merge')
 const baseConfig = require('./webpack.confg.base')
 
 const devServer = {
-  port: 8080,
+  port: 9200,
   host: '0.0.0.0',
   overlay: {
     errors: true,
