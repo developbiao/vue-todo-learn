@@ -1,5 +1,6 @@
 // import './instance'
 // import './lifecyle'
 // import './data-binding'
-//  import './computed'
-import './directive'
+// import './computed'
+// import './directive'
+import './define/define'
