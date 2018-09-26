@@ -1,2 +1,2 @@
-import './extend'
-// next 2:53m data binds two way
+import './v-model'
+// next 3:00m data binds two way
