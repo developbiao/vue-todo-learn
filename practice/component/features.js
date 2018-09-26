@@ -1,11 +1,23 @@
 import Vue from 'vue'
 
+const ChildComponent = {
+  template: '<div>Child component: {{data.value}}</div>',
+  inject: ['yeye', 'data'],
+  mounted () {
+    console.log(this.yeye)
+  }
+
+}
+
 const component = {
+  name: 'parent-comp',
+  components: {
+    ChildComponent
+  },
   template: `
     <div :style="style">
-      <div class="header">
         <slot :value="value" node="child23"></slot>
-      </div>
+        <child-component />
     </div>
   `,
   data () {
@@ -24,6 +36,17 @@ new Vue({
   components: {
     CompOne: component
   },
+  provide () {
+    const data = {}
+    Object.defineProperty(data, 'value', {
+      get: () => this.value,
+      enumerable: true
+    })
+    return {
+      yeye: this,
+      data
+    }
+  },
   el: '#root',
   data () {
     return {
@@ -39,6 +62,7 @@ new Vue({
       <comp-one ref="comp">
         <span ref="span" slot-scope="props">{{props.value}} - {{props.node}}</span>
       </comp-one>
+      <input type="text" v-model="value" />
     </div>
   `
 })
