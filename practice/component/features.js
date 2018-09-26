@@ -4,10 +4,7 @@ const component = {
   template: `
     <div :style="style">
       <div class="header">
-        <slot name="header"></slot>
-      </div>
-      <div class="body">
-        <slot name="body"></slot>
+        <slot :value="value" node="child23"></slot>
       </div>
     </div>
   `,
@@ -17,7 +14,8 @@ const component = {
         width: '200px',
         height: '200px',
         border: '2px dashed green'
-      }
+      },
+      value: 'component value'
     }
   }
 }
@@ -32,12 +30,14 @@ new Vue({
       value: '98765'
     }
   },
+  mounted () {
+    console.log(this.$refs.comp.value, this.$refs.span)
+  },
   template: `
     <div>
       <h3>Here you are?</h3>
-      <comp-one>
-        <span slot="header">Learning vue earning more money!</span>
-        <span slot="body">this is body insert</span>
+      <comp-one ref="comp">
+        <span ref="span" slot-scope="props">{{props.value}} - {{props.node}}</span>
       </comp-one>
     </div>
   `
